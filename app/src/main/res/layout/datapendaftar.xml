@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:background="@color/bg"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <ImageView
+            android:layout_width="351dp"
+            android:layout_height="245dp"
+            android:src="@drawable/done"
+            android:layout_marginStart="31dp"
+            android:layout_marginLeft="25dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="250dp"
+        android:background="@drawable/bg_login"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Selamat pendaftaran anda berhasil"
+            android:textSize="18dp"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/green"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="55dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="250dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Berikut data yang anda daftarkan "
+            android:textSize="40px"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@color/grey"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="85dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="250dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="154dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="133dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Nama pemilik"
+            android:textColor="@color/black"
+            android:textSize="40px" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text=":"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="40px"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="133dp"/>
+
+        <TextView
+            android:id="@+id/input_nama"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="Nama pemilik"
+            android:textSize="40px"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="133dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="250dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="165dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Nama peliharaan"
+            android:textColor="@color/black"
+            android:textSize="40px"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text=":"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="40px"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="165dp"/>
+
+        <TextView
+            android:id="@+id/input_nmpeliharaan"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="Nama pemilik"
+            android:textSize="40px"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="165dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="250dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="197dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Telepon"
+            android:textColor="@color/black"
+            android:textSize="40px"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text=":"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="40px"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="197dp"/>
+
+        <TextView
+            android:id="@+id/input_notelepon"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="Nama pemilik"
+            android:textSize="40px"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="197dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="250dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="229dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Jenis kelamin"
+            android:textColor="@color/black"
+            android:textSize="40px"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text=":"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="40px"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="229dp"/>
+
+        <TextView
+            android:id="@+id/input_jeniskelamin"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="Nama pemilik"
+            android:textSize="40px"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="229dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="250dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="261dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Jenis perawatan"
+            android:textColor="@color/black"
+            android:textSize="40px"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text=":"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="40px"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="261dp"/>
+
+        <TextView
+            android:id="@+id/txt_kondisi"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="Nama pemilik"
+            android:textSize="40px"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="261dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="250dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="293dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Umur peliharaan"
+            android:textColor="@color/black"
+            android:textSize="40px"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text=":"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="40px"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginTop="293dp"/>
+
+        <TextView
+            android:id="@+id/angkaumur"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="Nama pemilik"
+            android:textSize="40px"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="293dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="240dp"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_kembali"
+            android:layout_width="343dp"
+            android:layout_height="56dp"
+            android:text="KEMBALI"
+            android:textSize="40px"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_marginStart="34dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="370dp"/>
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
