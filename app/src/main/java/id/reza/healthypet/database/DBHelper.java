@@ -33,7 +33,7 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public Boolean insert(String nmpemilik, String nmpeliharaan, String telepon, String jenis_kelamin, String jenis_perawatan, String umur, String textumur, String is_valid) {
+    public Boolean insert(String trim, String nmpemilik, String nmpeliharaan, String telepon, String jenis_kelamin, String jenis_perawatan, String umur, String textumur) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("nmpemilik", nmpemilik);
@@ -43,7 +43,6 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("jenis_perawatan", jenis_perawatan);
         contentValues.put("umur", umur);
         contentValues.put("textumur", textumur);
-        contentValues.put("is_valid", is_valid);
         long result = db.insert("data_daftar", null, contentValues);
         if (result == -1) {
             return false;

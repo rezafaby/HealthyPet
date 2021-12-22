@@ -1,9 +1,13 @@
 package id.reza.healthypet;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -48,5 +52,31 @@ public class DataPendaftar extends AppCompatActivity {
         });
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.about){
+            android.app.AlertDialog.Builder builder1 = new android.app.AlertDialog.Builder(this);
+            builder1.setMessage("Nama :Ni Putu Reza Faby Yolanda\nNIM : 1905551025");
+            builder1.setTitle("ABOUT APP");
+            builder1.setCancelable(true);
+            builder1.setPositiveButton(
+                    "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            android.app.AlertDialog alert11 = builder1.create();
+            alert11.show();
+        } else if (item.getItemId() == R.id.data) {
+            startActivity(new Intent(this, Data.class));
+        }
+        return true;
+    }
 }
