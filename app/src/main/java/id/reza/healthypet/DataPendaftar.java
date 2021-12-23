@@ -23,25 +23,28 @@ public class DataPendaftar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.datapendaftar);
 
-        String nama = getIntent().getExtras().getString("nama");
-        String namap = getIntent().getExtras().getString("namap");
-        String telepon = getIntent().getExtras().getString("telepon");
-        String jk = getIntent().getExtras().getString("jk");
-        String jh = getIntent().getExtras().getString("jh");
-        String umur = getIntent().getExtras().getString("umur");
+//        String nama = getIntent().getExtras().getString("nama");
+//        String namap = getIntent().getExtras().getString("namap");
+//        String telepon = getIntent().getExtras().getString("telepon");
+//        String jk = getIntent().getExtras().getString("jk");
+//        String jh = getIntent().getExtras().getString("jh");
+//        String umur = getIntent().getExtras().getString("umur");
 
         hasilnama = findViewById(R.id.input_nama);
         hasilnamap = findViewById(R.id.input_nmpeliharaan);
         hasiltelepon = findViewById(R.id.input_notelepon);
         hasiljk = findViewById(R.id.input_jeniskelamin);
+        hasiljh = findViewById(R.id.input_perawatan);
         hasilumur = findViewById(R.id.angkaumur);
         btn_kembali = findViewById(R.id.btn_kembali);
 
-        hasilnama.setText( "" + nama);
-        hasilnamap.setText( "" + namap);
-        hasiltelepon.setText( "" + telepon);
-        hasiljk.setText( "" + jk);
-        hasilumur.setText( "" + umur);
+        Intent i =getIntent();
+        hasilnama.setText(i.getExtras().getString("nama"));
+        hasilnamap.setText(i.getExtras().getString("namap"));
+        hasiltelepon.setText(i.getExtras().getString("telepon"));
+        hasiljk.setText(i.getExtras().getString("jk"));
+        hasiljh.setText(i.getExtras().getString("jp"));
+        hasilumur.setText(i.getExtras().getString("umur"));
 
         btn_kembali.setOnClickListener(new View.OnClickListener() {
             @Override

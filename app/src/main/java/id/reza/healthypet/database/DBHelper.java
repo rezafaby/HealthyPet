@@ -33,7 +33,7 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public Boolean insert(String trim, String nmpemilik, String nmpeliharaan, String telepon, String jenis_kelamin, String jenis_perawatan, String umur, String textumur) {
+    public Boolean insert(String nmpemilik, String nmpeliharaan, String telepon, String jenis_kelamin, String jenis_perawatan, String umur, String textumur) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("nmpemilik", nmpemilik);
@@ -61,6 +61,14 @@ public class DBHelper extends SQLiteOpenHelper {
     public void deleteData(String telepon) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM data_daftar WHERE telepon='" + telepon + "'");
+    }
+
+
+    public Cursor loadData(String id) {
+        SQLiteDatabase db = getReadableDatabase();
+        String select = "SELECT * FROM  data_daftar WHERE telepon =?";
+        Cursor cursor = db.rawQuery(select, new String[]{String.valueOf(id)});
+        return cursor;
     }
 
     public void updateData(String telepon, String textumur, String is_valid){

@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -21,11 +23,15 @@ import java.util.ArrayList;
 import id.reza.healthypet.database.DBHelper;
 
 public class Data extends AppCompatActivity {
+    public static Data ma;
     RecyclerView recyclerView;
     SQLiteDatabase sqLiteDatabase;
+    DBHelper database ;
+    protected Cursor cursor;
+    String[] daftar;
     TextView valid;
     private ArrayList<Model> dataholder = new ArrayList<>();
-    Button button_daftar;
+    Button button_daftar, button_edit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,4 +90,5 @@ public class Data extends AppCompatActivity {
         }
         return true;
     }
+
 }

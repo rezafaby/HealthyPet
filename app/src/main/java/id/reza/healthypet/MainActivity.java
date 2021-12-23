@@ -2,11 +2,14 @@ package id.reza.healthypet;
 
 import static java.lang.String.*;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -33,6 +36,8 @@ public class MainActivity extends AppCompatActivity{
     SeekBar skumur;
     TextView angkaumur;
     Button btn_daftar;
+    public static MainActivity ma;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +55,12 @@ public class MainActivity extends AppCompatActivity{
         skumur = findViewById(R.id.seekbar_umur);
         angkaumur = findViewById(R.id.umur);
         btn_daftar = findViewById(R.id.button_daftar);
-        angkaumur.setText(skumur.getProgress() + " Bulan");
+
         skumur.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                angkaumur.setText(progress + (" bulan"));
+                angkaumur.setText(progress + (" Bulan"));
             }
 
             @Override
@@ -93,27 +98,28 @@ public class MainActivity extends AppCompatActivity{
                 String txt_jenper = jenis_perawatan;
                 String txt_umur = String.valueOf(skumur.getProgress());
 
-                Boolean checkinsert = db.insert(txt_nmpemilik, txt_nmpeliharaan, txt_telepon, txt_jenkel, txt_jenper, txt_umur, " ", "0");
+                Boolean checkinsert = db.insert(txt_nmpemilik, txt_nmpeliharaan, txt_telepon, txt_jenkel, txt_jenper, txt_umur, "0");
                 if(checkinsert == true){
+                    String finalJenis_perawatan = jenis_perawatan;
                     AlertDialog alert = new AlertDialog.Builder(MainActivity.this)
                             .setTitle("Selamat Pendaftaran Berhasil!"+'\n')
                             .setMessage("Nama pemilik        : " +
                                     txt_nmpemilik+'\n'+"Nama peliharaan  : " +
                                     txt_nmpeliharaan+'\n'+"No telepon             : " +
                                     txt_telepon+'\n' + "Jenis kelamin        : " +
-                                    txt_jenkel+'\n' + "Jenis hewan          : " +
+                                    txt_jenkel+'\n' + "Jenis perawatan   : " +
                                     txt_jenper+'\n'+"Umur peliharaan   : "+
-                                    txt_umur)
+                                    txt_umur + " bulan")
                             .setPositiveButton("OKE", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     Intent i = new Intent(MainActivity.this, DataPendaftar.class);
-                                    Intent nama = i.putExtra("nama", input_nama.getText().toString());
-                                    Intent namap = i.putExtra("namap", input_peliharaan.getText().toString());
-                                    Intent telepon = i.putExtra("telepon", input_telpon.getText().toString());
-                                    Intent jk = i.putExtra("jk", jenis_kelamin.getText().toString());
-                                    Intent jh = i.putExtra("jh", input_telpon.getText().toString());
-                                    Intent umur = i.putExtra("umur", angkaumur.getText().toString());
+                                    i.putExtra("nama", input_nama.getText().toString());
+                                    i.putExtra("namap", input_peliharaan.getText().toString());
+                                    i.putExtra("telepon", input_telpon.getText().toString());
+                                    i.putExtra("jk", jenis_kelamin.getText().toString());
+                                    i.putExtra("jp", finalJenis_perawatan);
+                                    i.putExtra("umur", angkaumur.getText().toString());
                                     startActivity(i);
 
                                 }
@@ -122,33 +128,34 @@ public class MainActivity extends AppCompatActivity{
                 }else{
                     Toast.makeText(MainActivity.this, "Pendaftaran gagal", Toast.LENGTH_SHORT).show();
                 }
-
-                input_nama.setText(null);
-                input_peliharaan.setText(null);
-                input_telpon.setText(null);
-                radioGroup.clearCheck();
-                cb1.setChecked(false);
-                cb2.setChecked(false);
-                skumur.setProgress(0);
             }
         });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
-        //getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.data){
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.about){
+            android.app.AlertDialog.Builder builder1 = new android.app.AlertDialog.Builder(this);
+            builder1.setMessage("Nama :Ni Putu Reza Faby Yolanda\nNIM : 1905551025");
+            builder1.setTitle("ABOUT APP");
+            builder1.setCancelable(true);
+            builder1.setPositiveButton(
+                    "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            android.app.AlertDialog alert11 = builder1.create();
+            alert11.show();
+        } else if (item.getItemId() == R.id.data) {
             startActivity(new Intent(this, Data.class));
-        } else if (item.getItemId() == R.id.logout) {
-            //startActivity(new Intent(this, SettingActivity.class));
         }
         return true;
     }
