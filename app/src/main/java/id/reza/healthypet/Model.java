@@ -20,7 +20,7 @@ public class Model {
         this.textumur = textumur;
     }
 
-    public Model(String id, String nmpemilik, String nmpeliharaan, String telepon, String jenis_kelamin, String jenis_rawat, String umur, String textumur, String is_valid){
+    public Model(String id, String nmpemilik, String nmpeliharaan, String jenis_kelamin, String telepon, String jenis_rawat, String umur, String textumur, String is_valid){
         this.id = id;
         this.nmpemilik = nmpemilik;
         this.nmpeliharaan = nmpeliharaan;

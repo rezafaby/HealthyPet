@@ -86,7 +86,7 @@ public class DBHelper extends SQLiteOpenHelper {
 //        }
 //    }
 
-    public Boolean updateData(String nmpemilik, String nmpeliharaan, String telepon, String jenis_kelamin, String jenis_perawatan, String umur, String textumur) {
+    public Boolean updateData(Integer id, String nmpemilik, String nmpeliharaan, String telepon, String jenis_kelamin, String jenis_perawatan, String umur, String textumur) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("nmpemilik", nmpemilik);
@@ -96,7 +96,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("jenis_perawatan", jenis_perawatan);
         contentValues.put("umur", umur);
         contentValues.put("textumur", textumur);
-        long result = db.update("data_daftar", contentValues, "telepon" + "=" + telepon, null);
+        long result = db.update("data_daftar", contentValues, "id" + "=" + id, null);
         if (result == -1) {
             return false;
         } else {
