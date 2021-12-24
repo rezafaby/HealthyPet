@@ -62,9 +62,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Data Belum Valid"
-                        android:textColor="@color/black"
+                        android:textColor="@color/grey"
                         android:textSize="16sp"
-                        android:textStyle="bold"
                         android:layout_marginLeft="10dp"/>
                 </LinearLayout>
 

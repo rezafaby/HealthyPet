@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity{
                 String txt_jenper = jenis_perawatan;
                 String txt_umur = String.valueOf(skumur.getProgress());
 
-                Boolean checkinsert = db.insert(txt_nmpemilik, txt_nmpeliharaan, txt_telepon, txt_jenkel, txt_jenper, txt_umur, "0");
+                Boolean checkinsert = db.insert( txt_nmpemilik, txt_nmpeliharaan, txt_telepon, txt_jenkel, txt_jenper, txt_umur, "0");
                 if(checkinsert == true){
                     String finalJenis_perawatan = jenis_perawatan;
                     AlertDialog alert = new AlertDialog.Builder(MainActivity.this)
@@ -142,7 +142,9 @@ public class MainActivity extends AppCompatActivity{
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.about){
             android.app.AlertDialog.Builder builder1 = new android.app.AlertDialog.Builder(this);
-            builder1.setMessage("Nama :Ni Putu Reza Faby Yolanda\nNIM : 1905551025");
+            builder1.setMessage("Nama :Ni Putu Reza Faby Yolanda\nNIM : 1905551025\n\n" +
+                    "Aplikasi HealthyPet merupakan sebuah aplikasi android yang digunakan " +
+                    "untuk melakukan pendaftaran grooming untuk hewan peliharaan ke Bali Pet Care and Service");
             builder1.setTitle("ABOUT APP");
             builder1.setCancelable(true);
             builder1.setPositiveButton(

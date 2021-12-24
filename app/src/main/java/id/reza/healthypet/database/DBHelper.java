@@ -18,18 +18,18 @@ public class DBHelper extends SQLiteOpenHelper {
     private final Context context;
 
     public DBHelper(Context context) {
-        super(context, "healthypet.db", null, 1);
+        super(context, "HealthyPet.db", null, 1);
         this.context = context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE data_daftar(nmpemilik TEXT, nmpeliharaan TEXT, jenis_kelamin TEXT, telepon TEXT PRIMARY KEY, jenis_perawatan TEXT, umur TEXT, textumur TEXT DEFAULT '', is_valid TEXT)");
+        db.execSQL("CREATE TABLE data_daftar(id INTEGER PRIMARY KEY AUTOINCREMENT, nmpemilik TEXT, nmpeliharaan TEXT, jenis_kelamin TEXT, telepon TEXT, jenis_perawatan TEXT, umur TEXT, textumur TEXT DEFAULT '', is_valid TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS healthypet.db");
+        db.execSQL("DROP TABLE IF EXISTS HealthyPet.db");
         onCreate(db);
     }
 
@@ -71,18 +71,36 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public void updateData(String telepon, String textumur, String is_valid){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-        cv.put("textumur", textumur);
-        cv.put("is_valid", is_valid);
+//    public void updateData(String telepon, String textumur, String is_valid){
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues cv = new ContentValues();
+//        cv.put("textumur", textumur);
+//        cv.put("is_valid", is_valid);
+//
+//        long result = db.update("data_daftar", cv, "telepon" + "='" + telepon + "'", null);
+//        if(result == -1){
+//            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+//        }else {
+//            Intent intent = new Intent(context, Data.class);
+//            context.startActivity(intent);
+//        }
+//    }
 
-        long result = db.update("data_daftar", cv, "telepon" + "='" + telepon + "'", null);
-        if(result == -1){
-            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
-        }else {
-            Intent intent = new Intent(context, Data.class);
-            context.startActivity(intent);
+    public Boolean updateData(String nmpemilik, String nmpeliharaan, String telepon, String jenis_kelamin, String jenis_perawatan, String umur, String textumur) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("nmpemilik", nmpemilik);
+        contentValues.put("nmpeliharaan", nmpeliharaan);
+        contentValues.put("telepon", telepon);
+        contentValues.put("jenis_kelamin", jenis_kelamin);
+        contentValues.put("jenis_perawatan", jenis_perawatan);
+        contentValues.put("umur", umur);
+        contentValues.put("textumur", textumur);
+        long result = db.update("data_daftar", contentValues, "telepon" + "=" + telepon, null);
+        if (result == -1) {
+            return false;
+        } else {
+            return true;
         }
     }
 }

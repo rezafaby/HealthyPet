@@ -97,6 +97,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewholder> {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
+                bundle.putString("id", dataholder.get(position).getId());
                 bundle.putString("nmpemilik", dataholder.get(position).getNmpemilik());
                 bundle.putString("nmpeliharaan", dataholder.get(position).getNmpeliharaan());
                 bundle.putString("telepon", dataholder.get(position).getTelepon());

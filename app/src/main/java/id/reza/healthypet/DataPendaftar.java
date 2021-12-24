@@ -65,7 +65,9 @@ public class DataPendaftar extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.about){
             android.app.AlertDialog.Builder builder1 = new android.app.AlertDialog.Builder(this);
-            builder1.setMessage("Nama :Ni Putu Reza Faby Yolanda\nNIM : 1905551025");
+            builder1.setMessage("Nama :Ni Putu Reza Faby Yolanda\nNIM : 1905551025\n\n" +
+                    "Aplikasi HealthyPet merupakan sebuah aplikasi android yang digunakan " +
+                    "untuk melakukan pendaftaran grooming untuk hewan peliharaan ke Bali Pet Care and Service");
             builder1.setTitle("ABOUT APP");
             builder1.setCancelable(true);
             builder1.setPositiveButton(

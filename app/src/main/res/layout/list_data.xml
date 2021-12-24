@@ -63,35 +63,7 @@
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/custom_input">
-
-                    <EditText
-                        android:id="@+id/search_input"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/username_icon"
-                        android:background="@android:color/transparent"
-                        android:hint="Cari Data"
-                        android:paddingLeft="17dp"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="15dp"
-                        android:textCursorDrawable="@drawable/custom_input"
-                        android:textSize="15sp" />
-
-                    <ImageView
-                        android:id="@+id/username_icon"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="16dp"
-                        android:src="@drawable/search" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="24dp">
+                    android:layout_height="match_parent">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rv_data_daftar"
