@@ -30,7 +30,7 @@ public class FormEdit extends AppCompatActivity {
     Button btn_simpan;
     EditText nmpemilik, nmpeliharaan, telepon;
     EditText input_nama, input_peliharaan, input_telpon;
-    Integer id;
+    String id;
     RadioGroup radioGroup;
     RadioButton jenis_kelamin, jantanRadio, betinaRadio;
     CheckBox cb1, cb2;
@@ -58,7 +58,7 @@ public class FormEdit extends AppCompatActivity {
         angkaumur = findViewById(R.id.umur);
         btn_daftar = findViewById(R.id.button_daftar);
         Bundle bundle = getIntent().getBundleExtra("datadaftar");
-        id = bundle.getInt("id");
+        id = bundle.getString("id");
         input_nama.setText(bundle.getString("nmpemilik"));
         input_peliharaan.setText(bundle.getString("nmpeliharaan"));
         input_telpon.setText(bundle.getString("telepon"));
@@ -135,7 +135,7 @@ public class FormEdit extends AppCompatActivity {
                 String txt_jenper = jenis_perawatan;
                 String txt_umur = String.valueOf(skumur.getProgress());
 
-                Boolean checkinsert = db.updateData(id, txt_nmpemilik, txt_nmpeliharaan, txt_telepon, txt_jenkel, txt_jenper, txt_umur, "0");
+                Boolean checkinsert = db.updateData(Integer.valueOf(id), txt_nmpemilik, txt_nmpeliharaan, txt_telepon, txt_jenkel, txt_jenper, txt_umur, "0");
                 if(checkinsert == true){
                     Toast.makeText(FormEdit.this, "Perubahan berhasil", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(FormEdit.this, Data.class);
